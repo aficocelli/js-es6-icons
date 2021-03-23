@@ -121,19 +121,15 @@ const Icons = [
 // Milestone 1
 // Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
 
-Icons.forEach((item, index) =>{
+Icons.forEach((item, index) => {
 
   const {name, family, prefix} = item;
 
-  $(".icons").html(
+  let card = ` <div>
+    <i class ="${family} ${prefix}${name}"></i>
+    <div class="title">${name}</div>
+  </div>`;
 
-    `
-      <div>
-        <i class ="${family} ${prefix}${name}"></i>
-        <div class="title">${name}</div>
-      </div>
-    `
-  );
+  $(".icons").append(card);
 
 });
-// $(".icons").html("<div> </div>");
