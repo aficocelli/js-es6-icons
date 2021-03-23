@@ -121,12 +121,61 @@ const Icons = [
 // Milestone 1
 // Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
 
-Icons.forEach((item, index) => {
+// Icons.forEach((item, index) => {
+//
+//   const {name, family, prefix} = item;
+//
+//   let card = ` <div>
+//     <i class ="${family} ${prefix}${name}"></i>
+//     <div class="title">${name}</div>
+//   </div>`;
+//
+//   $(".icons").append(card);
+//
+// });
 
-  const {name, family, prefix} = item;
+// Milestone 2
+// Coloriamo le icone per tipo
+
+// creo array con nome dei Colori
+
+const Colors = ["blue", "red", "yellow" ];
+
+// creo array con le categorie di ogni cards
+
+const Categories = [];
+
+Icons.forEach((item)=>{
+
+  if (Categories.includes(item.category) == false){
+
+    Categories.push(item.category);
+
+  }
+
+});
+
+// associo a ogni categoria il colore
+
+const ColoredIcons = Icons.map( (item) => {
+
+  const CategoryIndex = Categories.indexOf(item.category);
+
+  const ColorIndex = Colors[CategoryIndex];
+
+  item.color = ColorIndex;
+
+  return item;
+
+});
+
+
+ColoredIcons.forEach((item, index) => {
+
+  const {name, family, prefix, color} = item;
 
   let card = ` <div>
-    <i class ="${family} ${prefix}${name}"></i>
+    <i class ="${family} ${prefix}${name}" style='color: ${color}'></i>
     <div class="title">${name}</div>
   </div>`;
 
