@@ -123,7 +123,9 @@ const Icons = [
 
 Icons.forEach((item, index) =>{
 
-console.log(item);
+const {name, family, prefix} = item;
+
+console.log(name);
 
 
 });
