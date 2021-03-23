@@ -182,3 +182,13 @@ ColoredIcons.forEach((item, index) => {
   $(".icons").append(card);
 
 });
+
+// Milestone 3
+// // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+
+Categories.forEach((item)=>{
+
+  const Options = `<option value="">${item}</option>`;
+  $("#type").append(Options);
+
+});
