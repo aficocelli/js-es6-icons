@@ -169,19 +169,19 @@ const ColoredIcons = Icons.map( (item) => {
 
 });
 
-
-ColoredIcons.forEach((item, index) => {
-
-  const {name, family, prefix, color} = item;
-
-  let card = ` <div>
-    <i class ="${family} ${prefix}${name}" style='color: ${color}'></i>
-    <div class="title">${name}</div>
-  </div>`;
-
-  $(".icons").append(card);
-
-});
+copyCards(ColoredIcons);
+// ColoredIcons.forEach((item, index) => {
+//
+//   const {name, family, prefix, color} = item;
+//
+//   let card = ` <div>
+//     <i class ="${family} ${prefix}${name}" style='color: ${color}'></i>
+//     <div class="title">${name}</div>
+//   </div>`;
+//
+//   $(".icons").append(card);
+//
+// });
 
 // Milestone 3
 // // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
@@ -210,10 +210,34 @@ $("#type").change( function (){
     iconsFiltered = ColoredIcons;
   }
 
+  copyCards(iconsFiltered);
+  // $(".icons").html("");
+  //
+  // iconsFiltered.forEach((item, index) => {
+  //
+  //   const {name, family, prefix, color} = item;
+  //
+  //   let card = ` <div>
+  //   <i class ="${family} ${prefix}${name}" style='color: ${color}'></i>
+  //   <div class="title">${name}</div>
+  //   </div>`;
+  //
+  //   $(".icons").append(card);
+  //
+  // });
+});
+
+
+
+
+// funzioni
+
+function copyCards (items){
+
 
   $(".icons").html("");
 
-  iconsFiltered.forEach((item, index) => {
+  items.forEach((item, index) => {
 
     const {name, family, prefix, color} = item;
 
@@ -225,4 +249,6 @@ $("#type").change( function (){
     $(".icons").append(card);
 
   });
-});
+
+
+}
