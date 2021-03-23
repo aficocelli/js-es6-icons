@@ -188,7 +188,41 @@ ColoredIcons.forEach((item, index) => {
 
 Categories.forEach((item)=>{
 
-  const Options = `<option value="">${item}</option>`;
+  const Options = `<option value="${item}">${item}</option>`;
   $("#type").append(Options);
 
+});
+
+
+$("#type").change( function (){
+
+  const OptionsSelected = $(this).val();
+
+  let iconsFiltered = ColoredIcons.filter((item)=>{
+
+    return  item.category == OptionsSelected;
+
+
+  });
+
+  if (iconsFiltered.length == 0){
+
+    iconsFiltered = ColoredIcons;
+  }
+
+
+  $(".icons").html("");
+
+  iconsFiltered.forEach((item, index) => {
+
+    const {name, family, prefix, color} = item;
+
+    let card = ` <div>
+    <i class ="${family} ${prefix}${name}" style='color: ${color}'></i>
+    <div class="title">${name}</div>
+    </div>`;
+
+    $(".icons").append(card);
+
+  });
 });
