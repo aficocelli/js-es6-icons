@@ -123,10 +123,17 @@ const Icons = [
 
 Icons.forEach((item, index) =>{
 
-const {name, family, prefix} = item;
+  const {name, family, prefix} = item;
 
-console.log(name);
+  $(".icons").html(
 
+    `
+      <div>
+        <i class ="${family} ${prefix}${name}"></i>
+        <div class="title">${name}</div>
+      </div>
+    `
+  );
 
 });
 // $(".icons").html("<div> </div>");
