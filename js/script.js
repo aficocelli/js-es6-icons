@@ -121,9 +121,9 @@ const Icons = [
 // Milestone 1
 // Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
 
-icons.forEach((item, index) =>{
+Icons.forEach((item, index) =>{
 
-
+console.log(item);
 
 
 });
