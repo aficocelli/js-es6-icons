@@ -140,11 +140,11 @@ $(".icons").append(card);
 
 let colors = {
 
-  categoria1: "red",
+  food: "red",
 
-  categoria2: "yellow",
+  beverage: "yellow",
 
-  categoria3: "blue"
+  animal: "blue"
 
 }
 
@@ -154,54 +154,58 @@ Icons.forEach((item)=>{
 
   if(item.category == "food"){
 
-    return item.color = colors.categoria1;
+    return item.color = colors.food;
 
 
   } else if (item.category == "beverage"){
 
-    return item.color = colors.categoria2;
+    return item.color = colors.beverage;
+
   } else {
 
-    return item.color = colors.categoria3;
+    return item.color = colors.animal;
   }
 });
 console.log(Icons)
 
 copyCards (Icons);
 
+// add. options
+
+const Categories = Object.keys(colors);
 
 
 
+Categories.forEach((item)=>{
 
-// const Colors = ["red", "blue", "green"];
-//
-// const Categories = [];
-//
-// Icons.forEach((item)=>{
-//
-//   if ( Categories.includes(item.category) == false){
-//
-//     Categories.push(item.category);
-//
-//   }
-//
-// });
-//
-//
-//
-// const ColoredIcons = Icons.map((item)=>{
-//
-//   const IndexCategories = Categories.indexOf(item.category);
-//
-//   const ColorIndex = Colors[IndexCategories];
-//
-//   item.color = ColorIndex;
-//
-//   return item;
-//
-// });
-//
-// copyCards(ColoredIcons);
+  const Options = `<option value="${item}">${item}</option>`;
+  $("#type").append(Options);
+
+});
+
+$("#type").change(function(){
+
+  const Options = $(this).val();
+
+
+  let IconsFiltered = Icons.filter((item)=>{
+
+    return item.category == Options;
+
+  });
+
+  if (Options == "all") {
+    copyCards (Icons);
+  } else{
+    
+    copyCards (IconsFiltered);
+
+  }
+
+});
+
+
+
 
 // funzioni
 
