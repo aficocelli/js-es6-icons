@@ -137,35 +137,71 @@ $(".icons").append(card);
 // Milestone 2
 // Coloriamo le icone per tipo
 
-const Colors = ["red", "blue", "green"];
 
-const Categories = [];
+let colors = {
+
+  categoria1: "red",
+
+  categoria2: "yellow",
+
+  categoria3: "blue"
+
+}
+
+
 
 Icons.forEach((item)=>{
 
-  if ( Categories.includes(item.category) == false){
+  if(item.category == "food"){
 
-    Categories.push(item.category);
+    return item.color = colors.categoria1;
 
+
+  } else if (item.category == "beverage"){
+
+    return item.color = colors.categoria2;
+  } else {
+
+    return item.color = colors.categoria3;
   }
-
 });
+console.log(Icons)
+
+copyCards (Icons);
 
 
 
-const ColoredIcons = Icons.map((item)=>{
 
-  const IndexCategories = Categories.indexOf(item.category);
 
-  const ColorIndex = Colors[IndexCategories];
-
-  item.color = ColorIndex;
-
-  return item;
-
-});
-
-copyCards(ColoredIcons);
+// const Colors = ["red", "blue", "green"];
+//
+// const Categories = [];
+//
+// Icons.forEach((item)=>{
+//
+//   if ( Categories.includes(item.category) == false){
+//
+//     Categories.push(item.category);
+//
+//   }
+//
+// });
+//
+//
+//
+// const ColoredIcons = Icons.map((item)=>{
+//
+//   const IndexCategories = Categories.indexOf(item.category);
+//
+//   const ColorIndex = Colors[IndexCategories];
+//
+//   item.color = ColorIndex;
+//
+//   return item;
+//
+// });
+//
+// copyCards(ColoredIcons);
 
 // funzioni
 
